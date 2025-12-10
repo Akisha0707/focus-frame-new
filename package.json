@@ -1,0 +1,16 @@
+{
+  "name": "focusframe",
+  "version": "1.0.0",
+  "description": "focusframe",
+  "main": "npm update",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Nata",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "validator": "^13.15.23"
+  }
+}

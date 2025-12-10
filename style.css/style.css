@@ -1,0 +1,542 @@
+/* Variables */
+:root {
+  /* fonts */
+  --fonts: DM + Sans;
+  /* Background Color */
+  --bg-color: black;
+  /* Text Color */
+  --text-color: rgba(255, 255, 255, 1);
+  --span-color: rgba(190, 166, 158, 1);
+}
+
+/* Base styles */
+body {
+  font-family: var(--fonts);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Reset Start*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 375px;
+  margin: 0 auto;
+  /* max-width: 1440px; */
+}
+
+.header-page {
+  max-width: 335px;
+  margin: 20px 20px;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
+
+.nav-menu {
+  display: flex;
+  align-content: center;
+}
+
+.logo {
+  width: 127px;
+  height: 20px;
+  padding: 2px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.svg-wrap {
+  display: flex;
+  margin-top: 2px;
+  margin-left: 120px;
+  gap: 10px;
+}
+
+.mobile-menu-landing {
+  visibility: hidden;
+}
+
+.section-students {
+  margin: 40px 20px;
+  background-color: rgba(29, 29, 29, 1);
+  border-radius: 30px;
+}
+
+.section-students-header {
+  padding: 20px;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -4%;
+}
+
+.word-photography {
+  font-weight: 400;
+  font-style: Italic;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -4%;
+  color: rgba(190, 166, 158, 1);
+}
+
+.section-students-paragraph {
+  padding: 0px 20px 20px 20px;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -2%;
+}
+
+.section-students-icon {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.students {
+  background-color: rgba(29, 29, 29, 1);
+}
+
+.wrapper-for-happy-students-photo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0px 20px 20px 20px;
+}
+
+.students-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.title-happy-students {
+  width: 67px;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -4%;
+}
+
+.wrapper-for-svg-circle {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: -4%;
+}
+
+.word-1500 {
+  color: var(--text-color);
+}
+
+.boy-with-camera {
+  background-color: black;
+}
+
+.section-about-us {
+  margin: 0px 20px 60px 20px;
+}
+
+.title-skills {
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -2%;
+  text-transform: uppercase;
+  padding: 70px 20px 20px 20px;
+  color: var(--span-color);
+}
+
+.phrase-you-photography {
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -2%;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.title-about-us {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -4%;
+  padding: 20px 20px;
+}
+
+.span-us {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -4%;
+  color: var(--span-color);
+}
+
+.list-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 5px;
+  margin-top: 30px;
+}
+
+.section-our-courses {
+}
+
+.title-our-courses {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -4%;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.span-courses {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -4%;
+  color: var(--span-color);
+}
+
+.paragraph-our-courses {
+  width: 335px;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -2%;
+  padding: 0px 0px 20px 20px;
+}
+
+.list-our-courses {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.element-list-our-courses {
+  margin-left: 20px;
+  width: 335px;
+  background: linear-gradient(180deg, #060707 0%, #1d1d1d 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.num {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-right: 20px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.number-list-our-courses {
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -2%;
+  margin-left: 28px;
+}
+
+.our {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.title-list-our-courses {
+  margin-top: 30px;
+  margin-left: 28px;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: 0%;
+}
+
+.paragraph-list-our-courses {
+  margin-top: 150px;
+  margin-left: 28px;
+  width: 279px;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -2%;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.section-our-mentors {
+  width: 330px;
+  padding-top: 80px;
+}
+
+.title-our-mentors {
+  /* width: 155px; */
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -4%;
+  padding-bottom: 30px;
+}
+
+.word-mentors {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -4%;
+  color: var(--span-color);
+}
+
+.list-our-mentors {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.element-list-our-mentors {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+}
+
+.mentors-img {
+  margin-left: 75px;
+  border-radius: 100px;
+}
+
+.name-mentors {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.paragraph-list-our-mentors {
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -2%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.section-sign-up {
+  margin: 40px 20px 30px 20px;
+}
+
+.title-section-sign-up {
+  margin-bottom: 25px;
+}
+.title-sign-up {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -4%;
+}
+
+.word-up {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -4%;
+  color: var(--span-color);
+}
+
+.paragraf-section-sign-up {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -2%;
+}
+
+.form-section-sign-up {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+.wrapper-for-element-form-sign-up {
+}
+
+.element-form-sign-up {
+  max-width: 335px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--bc-);
+  border-radius: 12px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0px;
+  padding-left: 10px;
+}
+
+.message {
+  height: 112px;
+}
+
+.button-section-sign-up {
+  width: 335px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 1);
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #060707;
+  margin-top: 30px;
+}
+
+.second-paragraph-section-sign-up {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+.word-pravice-police {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  /* text-decoration-offset: 0%; */
+  text-decoration-thickness: 0%;
+  color: var(--span-color);
+}
+
+.section-reviews {
+  margin-top: 30px;
+  margin: 20px;
+}
+
+.title-section-reviews {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -4%;
+  margin-bottom: 30px;
+}
+
+.element-list-section-reviews {
+  max-width: 335px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.wrapper-for-img-section-reviews {
+  display: flex;
+  gap: 10px;
+}
+
+.wrapper-paragrafs-section-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.paragraf-with-name-section-reviews {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: rgba(255, 255, 255, 1);
+}
+
+.paragraf-student-section-reviews {
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -2%;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 2px;
+}
+
+.stars-svg {
+  /* margin-top: 5px; */
+  margin-left: 60px;
+  margin-bottom: 10px;
+}
+
+.text-reviews {
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -2%;
+  color: rgba(255, 255, 255, 1);
+}
