@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='style.css/style.css'>
+    <link rel="stylesheet" href='src/css/style.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css">
-    <link rel="stylesheet" href="style.css/style.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
     <title>Photography time</title>
 </head>
 
 <body class="container body-page">
-    <header class="header-page">
+    <header class="heade-page">
         <nav class="nav-menu">
             <a class="logo" href="img/logo.jpg">
                 <img src="img/logo.jpg" alt="text focus frame" width="123" height="16">
@@ -31,29 +31,6 @@
             </div>
         </nav>
         <!-- <p>Focus.Frame</p> -->
-        <div class="mobile-menu-landing">
-            <svg class="svg-x" width="32" height="32">
-                <use href="svg/x.svg"></use>
-            </svg>
-            <ul class='list-info-about-website'>
-                <li class="element-list-website">
-                    <a href="#about-us">About us</a>
-                </li>
-                <li class="element-list-website">
-                    <a href="#our-courses">Our courses</a>
-                </li>
-                <li class="element-list-website">
-                    <a href="#our-mentors">Our mentors</a>
-                </li>
-                <li class="element-list-website">
-                    <a href="#reviews">Reviews</a>
-                </li>
-                <li class="element-list-website">
-                    <a href="#contacts">Contacts</a>
-                </li>
-            </ul>
-            <button class='button-sign-up'>Sign up</button>
-        </div>
     </header>
     <main class="container main-page">
         <!-- <section Happy Students> -->
@@ -342,8 +319,36 @@
                     </ul>
                 </div>
         </footer>
+        <!-- <--mobile-menu-> -->
+        <div class="mobile-menu-landing">
+            <div class="wrapper-modal">
+                <svg class="svg-x" width="32" height="32">
+                    <use class="mobile-svg" href="svg/x.svg"></use>
+                </svg>
+                <ul class='list-info-about-website'>
+                    <li class="title-list-website">
+                        <a href="#about-us">About us</a>
+                    </li>
+                    <li class="element-list-website">
+                        <a href="#our-courses">Our courses</a>
+                    </li>
+                    <li class="element-list-website">
+                        <a href="#our-mentors">Our mentors</a>
+                    </li>
+                    <li class="element-list-website">
+                        <a href="#reviews">Reviews</a>
+                    </li>
+                    <li class="element-list-website">
+                        <a href="#contacts">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+            <img class="foto-modal" srcset="img/Rectangle@1.jpg, img/Rectangle@2.jpg" src="img/Rectangle.jpg"
+                alt="text focus frame" width="329" height="218">
+            <!-- <button class='button-sign-up'>Sign up</button> -->
+        </div>
     </main>
-    <script defer src='script.js/script.js'></script>
+    <script defer src='src/index.js'></script>
 </body>
 
 </html>

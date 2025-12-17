@@ -52,7 +52,11 @@ svg {
   /* max-width: 1440px; */
 }
 
-.header-page {
+.body-page {
+  position: relative;
+}
+
+.heade-page {
   max-width: 335px;
   margin: 20px 20px;
   height: 50px;
@@ -78,16 +82,6 @@ svg {
   margin-top: 2px;
   margin-left: 120px;
   gap: 10px;
-}
-
-.mobile-menu-landing {
-  visibility: hidden;
-}
-
-.section-students {
-  margin: 40px 20px;
-  background-color: rgba(29, 29, 29, 1);
-  border-radius: 30px;
 }
 
 .section-students-header {
@@ -225,9 +219,6 @@ svg {
   gap: 20px;
   padding: 5px;
   margin-top: 30px;
-}
-
-.section-our-courses {
 }
 
 .title-our-courses {
@@ -422,7 +413,7 @@ svg {
 }
 
 .element-form-sign-up {
-  max-width: 335px;
+  width: 335px;
   height: 46px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: var(--bc-);
@@ -469,9 +460,11 @@ svg {
   vertical-align: middle;
   text-decoration: underline;
   text-decoration-style: solid;
-  /* text-decoration-offset: 0%; */
-  text-decoration-thickness: 0%;
   color: var(--span-color);
+}
+
+.wrapper-for-foto-section-sign-up {
+  display: none;
 }
 
 .section-reviews {
@@ -539,4 +532,36 @@ svg {
   line-height: 18px;
   letter-spacing: -2%;
   color: rgba(255, 255, 255, 1);
+}
+
+.wrapper-official-list {
+  margin-bottom: 30px;
+}
+
+.mobile-menu-landing {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--span-color);
+  color: black;
+  margin-bottom: 30px;
+  display: none;
+}
+
+.svg-x {
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.list-info-about-website {
+  margin-top: 80px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  gap: 40px;
+}
+
+.title-list-website {
+  font-weight: bold;
 }
