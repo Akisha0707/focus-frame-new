@@ -565,3 +565,8 @@ svg {
 .title-list-website {
   font-weight: bold;
 }
+
+/* form */
+select {
+  padding: 4px;
+}
