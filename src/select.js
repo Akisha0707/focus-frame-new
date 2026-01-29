@@ -26,5 +26,3 @@
 //     getMobileMenu.style.display = "none";
 // }
 // closeMobileMenu.addEventListener("click", closeMobile)
-'user strict';
-const select;

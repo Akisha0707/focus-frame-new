@@ -1,6 +1,8 @@
 // const { throttle } = require('lodash');
 
 // add alt for img
+const getImg = document.querySelector('.foto-section-reviews');
+getImg.setAttribute('alt', 'women');
 
 // push button
 const getButton = document.querySelector('.button-section-sign-up');
@@ -100,21 +102,3 @@ document.addEventListener(
     console.log('Scroll handler call after 300ms pause');
   }, 300)
 );
-
-//localStorage
-const form = document.querySelector('.feedback-form');
-const localStorageKey = 'goit-example-message';
-
-form.elements.message.value = localStorage.getItem(localStorageKey) ?? '';
-
-console.log(form.elements.message.value);
-
-form.addEventListener('input', evt => {
-  localStorage.setItem(localStorageKey, evt.target.value);
-});
-
-form.addEventListener('submit', evt => {
-  evt.preventDefault();
-  localStorage.removeItem(localStorageKey);
-  form.reset();
-});
