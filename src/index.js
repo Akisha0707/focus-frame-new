@@ -36,7 +36,7 @@ closeMobileMenu.addEventListener('click', closeMobile);
 
 // keydown
 const keydownOn = event => {
-  event.preventDefault();
+  // event.preventDefault();
   console.log(event);
   if (event.key !== 'Enter') {
     return;
@@ -80,9 +80,9 @@ function getbtn(event) {
   console.log(event.currentTarget);
 }
 btn.addEventListener('click', getbtn);
-console.log(getfocus.nodeName); //перевиряе який елемент
+// console.log(getFocus.nodeName); //перевиряе який елемент
 
-//первірка чи підключеня бібліотека lodash
+//перевірка чи підключена бібліотека lodash
 const result = _.add(2, 3);
 console.log(result); // 5
 
@@ -110,6 +110,7 @@ form.elements.message.value = localStorage.getItem(localStorageKey) ?? '';
 console.log(form.elements.message.value);
 
 form.addEventListener('input', evt => {
+  console.log(evt.target.value);
   localStorage.setItem(localStorageKey, evt.target.value);
 });
 

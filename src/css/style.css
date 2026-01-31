@@ -413,6 +413,7 @@ svg {
 }
 
 .element-form-sign-up {
+  color: white;
   width: 335px;
   height: 46px;
   border: 1px solid rgba(255, 255, 255, 0.2);
