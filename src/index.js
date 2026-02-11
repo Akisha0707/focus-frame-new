@@ -102,20 +102,121 @@ document.addEventListener(
 );
 
 //localStorage
+
 const form = document.querySelector('.feedback-form');
-const localStorageKey = 'goit-example-message';
+const key = 'goit-example-message';
 
-form.elements.message.value = localStorage.getItem(localStorageKey) ?? '';
+const save = (key, value) => {
+  try {
+    // event.preventDefault();
+    const serializedState = JSON.stringify(value);
+    localStorage.setItem(key, serializedState);
+    console.log(serializedState);
+  } catch (error) {
+    console.error('Set state error: ', error.message);
+  }
+};
 
-console.log(form.elements.message.value);
+save(key, 'nata');
 
-form.addEventListener('input', evt => {
-  console.log(evt.target.value);
-  localStorage.setItem(localStorageKey, evt.target.value);
+const load = key => {
+  try {
+    const serializedState = localStorage.getItem(key);
+    return serializedState === null ? undefined : JSON.parse(serializedState);
+  } catch (error) {
+    console.error('Get state error: ', error.message);
+  }
+};
+
+const remote = key => {
+  try {
+    const serializedState = localStorage.removeItem(key);
+    form.reset();
+    console.log(serializedState);
+  } catch (error) {
+    console.log('Get state error:', error);
+  }
+};
+
+// export default {
+//   save,
+//   load,
+// };
+
+// асинхрон
+const greet = () => {
+  console.log('Hello!');
+};
+
+const timerId = setTimeout(greet, 3000);
+
+clearTimeout(timerId);
+
+// дата на сьогоднішній момент
+const date = new Date(2030, 3, 15, 14, 30, 0);
+date.setMinutes(25);
+console.log(date.toDateString());
+
+console.log(date.getDay());
+
+//проміси
+// const promise = new Promis((resolve, reject) => {}); //створення промісу
+const isSuccess = true;
+
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (isSuccess) {
+      resolve('Success! Value passed to resolve function');
+    } else {
+      reject('Error! Error passed to reject function');
+    }
+  }, 2000);
 });
 
-form.addEventListener('submit', evt => {
-  evt.preventDefault();
-  localStorage.removeItem(localStorageKey);
-  form.reset();
+console.log(promise);
+
+promise.then(
+  value => {
+    console.log('onResolve call inside promise.then()');
+    console.log(value);
+  },
+  error => {
+    console.log('onReject call inside promise.then()');
+    console.log(error);
+  }
+);
+
+console.log(promise);
+
+//запити
+fetch('https://jsonplaceholder.typicode.com/users')
+  .then(respons => {
+    if (!respons.ok) {
+      throw new Error(respons.status);
+    }
+    return respons.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error(error.text);
+  });
+
+//додавання параметрів
+const searchParams = new URLSearchParams({
+  _limit: 5,
+  _sort: 'name',
 });
+
+console.log(searchParams.toString()); // "_limit=5&_sort=name"
+
+const url = `https://jsonplaceholder.typicode.com/users?${searchParams}`;
+console.log(url);
+//
+const postId = 1;
+
+fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+  .then(response => response.json(console.log(response)))
+  .then(post => console.log(post))
+  .catch(error => console.log(error));
