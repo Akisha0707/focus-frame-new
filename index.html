@@ -364,12 +364,16 @@
                 </select>
         </div>
         <div>
-
             <form class="feedback-form">
                 <input type="text" name="message"></input>
                 <button type="submit">Send feedback</button>
             </form>
-
+        </div>
+        <div>
+            <form class="search-form" id="search-form">
+                <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
+                <button type="submit">Search</button>
+            </form>
         </div>
     </main>
     <!-- Lodash library script file -->
@@ -380,8 +384,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
         integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Axios library script file -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+
     <!-- my script file -->
-    <script src='src/index.js' defer></script>
+    <script type="module" src='src/index.js' defer></script>
 </body>
 
 </html>

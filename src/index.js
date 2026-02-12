@@ -1,4 +1,5 @@
 // const { throttle } = require('lodash');
+import axios from 'https://cdn.skypack.dev/axios';
 
 // add alt for img
 
@@ -220,3 +221,26 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
   .then(response => response.json(console.log(response)))
   .then(post => console.log(post))
   .catch(error => console.log(error));
+//homework 11
+
+const searchForm = document.querySelector('.search-form');
+const inputValue = document.querySelector('.');
+
+const keyApi = '41255636-c4f744f2bee1451fa093ac625';
+// const api = 'https://pixabay.com/api/';
+
+const param = {};
+
+searchForm.addEventListener('submit', sendForm);
+
+function sendForm(event) {
+  event.preventDefault();
+  console.log(event.currentTarget.elements);
+  console.log(event.target.elements);
+  form.reset();
+}
+
+// axios
+//   .get('https://pixabay.com/api/')
+//   .then(res => console.log(res))
+//   .catch(error => console.log(error));
