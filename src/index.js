@@ -1,5 +1,6 @@
-// const { throttle } = require('lodash');
+// import _ from 'https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js';
 import axios from 'https://cdn.skypack.dev/axios';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // add alt for img
 
@@ -84,8 +85,8 @@ btn.addEventListener('click', getbtn);
 // console.log(getFocus.nodeName); //перевиряе який елемент
 
 //перевірка чи підключена бібліотека lodash
-const result = _.add(2, 3);
-console.log(result); // 5
+// const result = _.add(2, 3);
+// console.log(result); // 5
 
 //throttle and debounce
 document.addEventListener(
@@ -213,7 +214,6 @@ const searchParams = new URLSearchParams({
 console.log(searchParams.toString()); // "_limit=5&_sort=name"
 
 const url = `https://jsonplaceholder.typicode.com/users?${searchParams}`;
-console.log(url);
 //
 const postId = 1;
 
@@ -224,23 +224,51 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
 //homework 11
 
 const searchForm = document.querySelector('.search-form');
-const inputValue = document.querySelector('.');
 
-const keyApi = '41255636-c4f744f2bee1451fa093ac625';
-// const api = 'https://pixabay.com/api/';
-
-const param = {};
+const api = 'https://pixabay.com/api/';
+const keyApi = '?key=41255636-c4f744f2bee1451fa093ac625';
 
 searchForm.addEventListener('submit', sendForm);
 
 function sendForm(event) {
   event.preventDefault();
-  console.log(event.currentTarget.elements);
-  console.log(event.target.elements);
+  const inputValue = event.currentTarget.elements['searchQuery'].value;
+
+  // const params = {
+  //   q: inputValue,
+  //   image_type: photo,
+  //   orientation: horizontal,
+  //   safesearch: true,
+  // };
+
+  const fetchImages = async () => {
+    const response = await fetch(
+      `${api}${keyApi}&q=${inputValue}&image_type=photo&orientation=horizontal&safesearch=true&page=2`
+    );
+    const imgRest = await response.json();
+    return imgRest;
+  };
+
+  fetchImages()
+    .then(img =>
+      console.log(
+        img.hits.map(item => {
+          const itemElements = {
+            itemId: item.id,
+            itemWebformatURL: item.webformatURL,
+            itemLargeImageURL: item.largeImageURL,
+            itemTags: item.tags,
+            itemLikes: item.likes,
+            itemViews: item.views,
+            itemComments: item.comments,
+            itemDownloads: item.downloads,
+          };
+
+          console.log(itemElements);
+        })
+      )
+    )
+    .catch(error => console.log(error));
+
   form.reset();
 }
-
-// axios
-//   .get('https://pixabay.com/api/')
-//   .then(res => console.log(res))
-//   .catch(error => console.log(error));
