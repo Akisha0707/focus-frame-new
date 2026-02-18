@@ -234,41 +234,44 @@ function sendForm(event) {
   event.preventDefault();
   const inputValue = event.currentTarget.elements['searchQuery'].value;
 
-  // const params = {
-  //   q: inputValue,
-  //   image_type: photo,
-  //   orientation: horizontal,
-  //   safesearch: true,
-  // };
-
   const fetchImages = async () => {
-    const response = await fetch(
-      `${api}${keyApi}&q=${inputValue}&image_type=photo&orientation=horizontal&safesearch=true&page=2`
-    );
-    const imgRest = await response.json();
-    return imgRest;
+    try {
+      const response = await fetch(
+        `${api}${keyApi}&q=${inputValue}&image_type=photo&orientation=horizontal&safesearch=true&page=2`
+      );
+      const imgRest = await response.json();
+
+      if (inputValue !== '' && imgRest.hits.length !== 0) {
+        return imgRest;
+      } else {
+        console.log('Sorry, there are no images matching your search query. Please try again.');
+      }
+      form.reset();
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   fetchImages()
-    .then(img =>
-      console.log(
-        img.hits.map(item => {
-          const itemElements = {
-            itemId: item.id,
-            itemWebformatURL: item.webformatURL,
-            itemLargeImageURL: item.largeImageURL,
-            itemTags: item.tags,
-            itemLikes: item.likes,
-            itemViews: item.views,
-            itemComments: item.comments,
-            itemDownloads: item.downloads,
-          };
-
-          console.log(itemElements);
-        })
-      )
-    )
+    .then(imgRest => console.log(imgRest.total))
     .catch(error => console.log(error));
-
-  form.reset();
 }
+
+// fetchImages()
+//   .then(img =>
+//     img.hits.map(item => {
+//       const itemElements = {
+//         itemId: item.id,
+//         itemWebformatURL: item.webformatURL,
+//         itemLargeImageURL: item.largeImageURL,
+//         itemTags: item.tags,
+//         itemLikes: item.likes,
+//         itemViews: item.views,
+//         itemComments: item.comments,
+//         itemDownloads: item.downloads,
+//       };
+
+//       console.log(itemElements);
+//     })
+//   )
+//   .catch(error => console.log(error));
