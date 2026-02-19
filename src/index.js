@@ -1,5 +1,5 @@
 // import _ from 'https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js';
-import axios from 'https://cdn.skypack.dev/axios';
+// import axios from 'https://cdn.skypack.dev/axios';
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // add alt for img
@@ -221,10 +221,10 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
   .then(response => response.json(console.log(response)))
   .then(post => console.log(post))
   .catch(error => console.log(error));
+
 //homework 11
-
 const searchForm = document.querySelector('.search-form');
-
+// робимо запит на сервер і обробляємо відповідь
 const api = 'https://pixabay.com/api/';
 const keyApi = '?key=41255636-c4f744f2bee1451fa093ac625';
 
@@ -246,32 +246,41 @@ function sendForm(event) {
       } else {
         console.log('Sorry, there are no images matching your search query. Please try again.');
       }
-      form.reset();
     } catch (error) {
       console.log(error.message);
     }
+    form.reset();
   };
 
+  // додаємо картки в галерею і відображаємо їх
+  const getGallery = document.querySelector('.gallery');
+
   fetchImages()
-    .then(imgRest => console.log(imgRest.total))
+    .then(imgRest => {
+      const card = imgRest.hits
+        .map(({ id, webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
+          return `<div class="photo-card">
+        <img id=""${id} src="${webformatURL}" alt="${tags}" loading="lazy" />
+        <div class="info">
+        <p class="info-item">
+        <b>Likes: ${likes}</b>
+        </p>
+        <p class="info-item">
+        <b>Views: ${views}</b>
+        </p>
+        <p class="info-item"> 
+        <b>Comments: ${comments}</b>
+        </p>
+        <p class="info-item">
+        <b>Downloads: ${downloads}</b>
+        </p>
+        </div>
+        </div>`;
+        })
+        .join('');
+
+      getGallery.insertAdjacentHTML('afterbegin', card);
+      // getGallery.innerHTML = '';
+    })
     .catch(error => console.log(error));
 }
-
-// fetchImages()
-//   .then(img =>
-//     img.hits.map(item => {
-//       const itemElements = {
-//         itemId: item.id,
-//         itemWebformatURL: item.webformatURL,
-//         itemLargeImageURL: item.largeImageURL,
-//         itemTags: item.tags,
-//         itemLikes: item.likes,
-//         itemViews: item.views,
-//         itemComments: item.comments,
-//         itemDownloads: item.downloads,
-//       };
-
-//       console.log(itemElements);
-//     })
-//   )
-//   .catch(error => console.log(error));
