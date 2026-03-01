@@ -222,34 +222,37 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
   .then(post => console.log(post))
   .catch(error => console.log(error));
 
-//homework 11
-const searchForm = document.querySelector('.search-form');
+//homework 11    додаємо оброблювач подій на форму
+
 // робимо запит на сервер і обробляємо відповідь
 const api = 'https://pixabay.com/api/';
 const keyApi = '?key=41255636-c4f744f2bee1451fa093ac625';
+let page = 1;
+let perPage = 40;
 
+const searchForm = document.querySelector('.search-form');
 searchForm.addEventListener('submit', sendForm);
 
 function sendForm(event) {
   event.preventDefault();
-  const inputValue = event.currentTarget.elements['searchQuery'].value;
+  const inputValue = event.target.elements['searchQuery'].value;
 
   const fetchImages = async () => {
     try {
       const response = await fetch(
-        `${api}${keyApi}&q=${inputValue}&image_type=photo&orientation=horizontal&safesearch=true&page=2`
+        `${api}${keyApi}&q=${inputValue}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${perPage}`
       );
       const imgRest = await response.json();
 
       if (inputValue !== '' && imgRest.hits.length !== 0) {
         return imgRest;
       } else {
-        console.log('Sorry, there are no images matching your search query. Please try again.');
+        console.error('Sorry, there are no images matching your search query. Please try again.');
       }
+      inputValue.reset();
     } catch (error) {
       console.log(error.message);
     }
-    form.reset();
   };
 
   // додаємо картки в галерею і відображаємо їх
@@ -260,27 +263,56 @@ function sendForm(event) {
       const card = imgRest.hits
         .map(({ id, webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
           return `<div class="photo-card">
-        <img id=""${id} src="${webformatURL}" alt="${tags}" loading="lazy" />
-        <div class="info">
-        <p class="info-item">
-        <b>Likes: ${likes}</b>
-        </p>
-        <p class="info-item">
-        <b>Views: ${views}</b>
-        </p>
-        <p class="info-item"> 
-        <b>Comments: ${comments}</b>
-        </p>
-        <p class="info-item">
-        <b>Downloads: ${downloads}</b>
-        </p>
-        </div>
-        </div>`;
+      <img id=""${id} src="${webformatURL}" alt="${tags}" loading="lazy" />
+      <div class="info">
+      <p class="info-item">
+      <b>Likes: ${likes}</b>
+      </p>
+      <p class="info-item">
+      <b>Views: ${views}</b>
+      </p>
+      <p class="info-item"> 
+      <b>Comments: ${comments}</b>
+      </p>
+      <p class="info-item">
+      <b>Downloads: ${downloads}</b>
+      </p>
+      </div>
+      </div>`;
         })
         .join('');
 
       getGallery.insertAdjacentHTML('afterbegin', card);
-      // getGallery.innerHTML = '';
     })
     .catch(error => console.log(error));
+  getGallery.innerHTML = '';
+}
+// робота з кнопкою "додати більше зображень"
+
+const loadMoreButton = document.querySelector('.load-more');
+loadMoreButton.addEventListener('click', getMorePicters);
+
+function getMorePicters(evt) {
+  evt.preventDefault();
+
+  const loadeMoreImg = async () => {
+    try {
+      page += 1;
+      perPage += 40;
+      console.log(perPage);
+
+      const responseLoad = await fetch(
+        `${api}${keyApi}&q=${inputValue}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${perPage}`
+      );
+      console.log(responseLoad);
+      const responseLoadImg = await responseLoad.json();
+      return responseLoadImg;
+    } catch {
+      error => console.log(error.message);
+    }
+  };
+
+  loadeMoreImg()
+    .then(data => console.log(data))
+    .catch(error => console.log(error.message));
 }
